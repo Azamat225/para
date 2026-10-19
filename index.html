@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07070f" />
+  <title>Калькулятор · DOM Edition</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="orbs" aria-hidden="true">
+    <span class="orb orb--1"></span>
+    <span class="orb orb--2"></span>
+    <span class="orb orb--3"></span>
+  </div>
+
+  <main class="app">
+    <section class="calc" aria-label="Калькулятор">
+      <header class="calc__head">
+        <div>
+          <h1 class="calc__title">Калькулятор</h1>
+          <p class="calc__subtitle">+ − × ÷ и возведение в степень</p>
+        </div>
+        <span class="calc__badge">DOM</span>
+      </header>
+
+      <div class="display" id="display">
+        <div class="display__expr" id="expression">0</div>
+        <div class="display__result" id="result" aria-live="polite">0</div>
+      </div>
+
+      <div class="keys" id="keys">
+        <button class="key key--fn key--danger" type="button" data-action="clear" title="Очистить (Esc)">C</button>
+        <button class="key key--fn" type="button" data-action="backspace" title="Удалить символ (Backspace)">⌫</button>
+        <button class="key key--fn" type="button" data-value="(" title="Открыть скобку">(</button>
+        <button class="key key--fn" type="button" data-value=")" title="Закрыть скобку">)</button>
+        <button class="key key--op key--div" type="button" data-value="÷" title="Деление">÷</button>
+
+        <button class="key key--fn key--pow" type="button" data-value="²" title="Квадрат числа">x<sup>2</sup></button>
+        <button class="key key--num" type="button" data-value="7">7</button>
+        <button class="key key--num" type="button" data-value="8">8</button>
+        <button class="key key--num" type="button" data-value="9">9</button>
+        <button class="key key--op key--mul" type="button" data-value="×" title="Умножение">×</button>
+
+        <button class="key key--fn" type="button" data-value="√(" title="Квадратный корень">√</button>
+        <button class="key key--num" type="button" data-value="4">4</button>
+        <button class="key key--num" type="button" data-value="5">5</button>
+        <button class="key key--num" type="button" data-value="6">6</button>
+        <button class="key key--op key--sub" type="button" data-value="−" title="Вычитание">−</button>
+
+        <button class="key key--fn" type="button" data-value="^" title="Возведение в степень">x<sup>y</sup></button>
+        <button class="key key--num" type="button" data-value="1">1</button>
+        <button class="key key--num" type="button" data-value="2">2</button>
+        <button class="key key--num" type="button" data-value="3">3</button>
+        <button class="key key--op key--add" type="button" data-value="+" title="Сложение">+</button>
+
+        <button class="key key--num key--zero" type="button" data-value="0">0</button>
+        <button class="key key--num" type="button" data-value="." title="Запятая / точка">.</button>
+        <button class="key key--equals" type="button" data-action="equals" title="Посчитать (Enter)">=</button>
+      </div>
+    </section>
+
+    <aside class="history" aria-label="История вычислений">
+      <div class="history__head">
+        <h2 class="history__title">История</h2>
+        <button class="history__clear" id="clearHistory" type="button">Очистить</button>
+      </div>
+      <ul class="history__list" id="historyList"></ul>
+      <p class="history__hint">Можно считать с клавиатуры: Enter, Backspace, Esc.</p>
+    </aside>
+  </main>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
